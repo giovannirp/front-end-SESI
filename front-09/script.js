@@ -18,8 +18,42 @@ const cars = [
         brand: "Ford",
         model: "Focus",
         year: 2018
+    },
+    {
+        brand: "Fiat",
+        model: "Uno",
+        year: 2013
     }
 ];
 
-console.log(cars[0].brand);
-console.log(cars[2].model);
+/* Criando uma função */
+function displayCars() {
+    // Variável 
+    const cardList = document.querySelector("#card-list");
+
+    cars.forEach((car) => {
+        console.log(car);
+        // Criamos um elemento div pelo JavaScript
+        const cardDiv = document.createElement("div");
+        // criando uma classe css car
+        cardDiv.classList.add("car");
+
+        // Criando o modelo
+        const cardModel = document.createElement("h2");
+        cardModel.textContent = `${car.brand} ${car.model}`;
+
+        // Criando o Ano
+        const cardYear = document.createElement("p");
+        cardYear.textContent = `Ano: ${car.year}`;
+
+        cardDiv.appendChild(cardModel);
+        cardDiv.appendChild(cardYear);
+
+        cardList.appendChild(cardDiv);
+        
+    });
+    
+}
+
+// Chamar a função
+displayCars();
